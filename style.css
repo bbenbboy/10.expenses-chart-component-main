@@ -1,0 +1,135 @@
+:root {
+  --SoftRed: hsl(10, 79%, 65%);
+  --Cyan: hsl(186, 34%, 60%);
+  --DarkBrown: hsl(25, 47%, 15%);
+  --MediumBrown: hsl(28, 10%, 53%);
+  --Cream: hsl(27, 66%, 92%);
+  --VeryPaleOrange: hsl(33, 100%, 98%);
+}
+* {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+}
+body {
+  display: grid;
+  place-items: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--Cream);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--SoftRed);
+  color: var(--VeryPaleOrange);
+  border-radius: 20px;
+  padding: 5px 20px;
+}
+.nav h1 {
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+.nav p {
+  margin-bottom: 4px;
+}
+/* body */
+.spend-container {
+  background-color: white;
+  border-radius: 20px;
+  height: auto;
+  padding: 20px;
+  margin: 20px 0;
+}
+.header h1 {
+  font-size: 1.5rem;
+  color: var(--DarkBrown);
+  margin-top: 0;
+}
+/* chart */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  align-items: flex-end;
+  margin-top: 50px;
+}
+
+.bar {
+  width: 40px;
+  background-color: var(--SoftRed);
+  border-radius: 5px;
+  transition: 0.5s;
+  position: relative;
+}
+.bar:hover {
+  opacity: 0.8;
+}
+.bar::after {
+  content: attr(data-amount);
+  display: block;
+  position: absolute;
+  background-color: black;
+  color: #fffbf6;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 10px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 18px;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translate(-50%) scale(0);
+  transition: transform ease-out 150ms;
+}
+.bar:hover::after {
+  transform: translate(-50%) scale(1);
+}
+figure {
+  margin: 5px 10px;
+  text-align: center;
+}
+figcaption {
+  color: var(--MediumBrown);
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+/* bottom */
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: end;
+  color: var(--MediumBrown);
+}
+.total-container h1 {
+  font-size: 2rem;
+  color: var(--DarkBrown);
+}
+.total-changed .special {
+  color: var(--DarkBrown);
+  font-weight: 700;
+}
+.special,
+.total-changed p {
+  margin: 0;
+}
+.total {
+  text-align: start;
+}
+.total h1 {
+  margin: 0px;
+}
+.total p {
+  margin-bottom: 5px;
+}
+
+hr {
+  border: 1px solid var(--Cream);
+}
+
+@media only screen and(max-width:500px) {
+  .chart-container {
+    width: 100%;
+  }
+}
